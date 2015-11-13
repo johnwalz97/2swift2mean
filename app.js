@@ -40,7 +40,7 @@ app.get("/", function(req, res){
         } else {
             console.log("No Errors");
         }
-        res.render("index", {
+        res.render("teams", {
             teams: teams
         })
     })
