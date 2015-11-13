@@ -40,20 +40,21 @@ app.get("/", function(req, res){
         } else {
             console.log("No Errors");
         }
-        res.render("index", {
+        res.render('teams', {
             teams: teams
         })
     })
 })
-app.get("/teams", function(req, res){
-    Team.find({}, function(err, teams){
+app.get("/teams/:id", function(req, res){
+    Team.findOne({_id: req.params.id}).populate('students').exec(function(err, team){
         if (err) {
             console.log(err);
         } else {
             console.log("No Errors");
         }
-        res.render("index", {
-            teams: teams
+	console.log(team);
+        res.render("show_team", {
+            team: team
         })
     })
 })
