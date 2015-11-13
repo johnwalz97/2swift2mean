@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Teams/Students</title>
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<h1 class="text-center">Name: <%= student.name %></h1>
+			<h1 class="text-center">Team: <%= student.team %></h1>
+			<div class="dropdown">
+				<button class="btn btn-info dropdown-toggle pull-left" type="button" id="team_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">(Re)Assign Team<span class="caret"></span></button>
+				<ul class="dropdown-menu" aria-labelledby="team_dropdown">
+	<%	for (index in teams) { %>
+					<li><a href="/<%= student._id %>/<%= teams[index]._id %>"><%= teams[index].name %></a></li>
+	<%	}	%>
+				</ul>
+			</div>
+			<button id="clear" class="btn btn-md btn-danger pull-right">Clear Association</button>
+		</div>
+	</div>
+</body>
+</html>
