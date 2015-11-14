@@ -9,8 +9,10 @@
 <body>
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8">
-			<h1 class="text-center">Name: <%= student.name %></h1>
-			<h1 class="text-center">Team: <%= student.team %></h1>
+			<h1 class="text-center">Name: <%= student.name %> <a class="btn btn-md btn-warning" href="/student/<%= student._id %>/destroy"> Delete Student</a></h1>
+			<% if(team){ %>
+			<h1 class="text-center">Team: <%= team.name %></h1>
+			<% } %>
 			<div class="dropdown">
 				<button class="btn btn-info dropdown-toggle pull-left" type="button" id="team_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">(Re)Assign Team<span class="caret"></span></button>
 				<ul class="dropdown-menu" aria-labelledby="team_dropdown">
@@ -19,7 +21,7 @@
 	<%	}	%>
 				</ul>
 			</div>
-			<button id="clear" class="btn btn-md btn-danger pull-right">Clear Association</button>
+			<a href="/<%= student._id %>/clear"><button id="clear" class="btn btn-md btn-danger pull-right">Clear Association</button>
 		</div>
 	</div>
 </body>

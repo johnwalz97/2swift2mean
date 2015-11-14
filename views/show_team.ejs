@@ -9,10 +9,11 @@
 <body>
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8">
-			<h1 class="text-center">Team: <%= team.name %></h1>
+			<h1 class="text-center">Team: <%= team.name %> <a class="btn btn-md btn-warning" href="/team/<%= team._id %>/destroy"> Delete Team</a></h1>
 	<%	for (index in team.members) { %>
-			<p><%= team.members[index].name %></p>
+			<p class="text-center"><%= team.members[index].name %></p>
 	<%	}	%>
+			<a href="/"><button class="btn btn-md btn-info">All Teams</button></a>
 		</div>
 	</div>
 </body>
